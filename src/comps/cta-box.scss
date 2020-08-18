@@ -1,0 +1,31 @@
+@import './colors.scss';
+
+@mixin cta-box($bg-color: get-color(Bright-Red), $text-color: white) {
+	
+	background-color: $bg-color;
+	color: $text-color;	
+	border: 1px solid transparent;
+	border-radius: 25px;
+
+	display: inline-block;
+	padding: 12px 30px;
+
+	&:not([type=submit]) {
+		box-shadow: transparentize($color: $bg-color, $amount: .8) 0 10px 10px;
+	}
+
+	/* Hover */
+	&:hover {
+		background-color: transparent;
+		color: $bg-color;
+		border-color: $bg-color;
+
+		cursor: pointer;
+	} 
+	&:focus {
+		outline: none;
+	}
+	&:active {
+		transform: scale(.9);
+	}
+}

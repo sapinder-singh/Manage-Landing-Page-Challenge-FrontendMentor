@@ -1,0 +1,43 @@
+@import '../cta-box.scss';
+
+.top-section {
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 50px 10%;
+	justify-content: space-between;
+	align-items: center;
+
+	.intro-img-wrapper {
+		order: 1;
+		flex: 0 1 auto;
+	}
+
+	.text-wrapper {
+		flex: 0 1 45%;
+
+		.intro-sub-heading {
+			margin: 40px 25% 40px 0;
+		}
+		.cta-box {
+			@include cta-box();
+		}
+	}
+}
+
+
+@media screen and (max-width: 1090px) {
+	#root .top-section {
+		flex-direction: column;
+		text-align: center;
+
+		>* { flex-basis: 100% }
+		
+		.intro-img-wrapper {
+			order: 0;
+			.intro-img { width: 100% }
+		}
+		.text-wrapper .intro-sub-heading {
+			margin-right: 0;
+		}
+	}
+}

@@ -1,0 +1,114 @@
+@import '../colors.scss';
+@import '../cta-box.scss';
+
+.testimonials-section {
+	text-align: center;
+	padding: 50px 0 150px;
+
+	.testimonials-wrapper {
+		margin: 50px 0;
+		position: relative;
+		
+		&::before {
+			content: url('../../images/bg-tablet-pattern.svg');
+			position: absolute;
+			bottom: 10%; left: -20%;
+			z-index: -1;
+		}
+	}
+	.cta-box {
+		@include cta-box();
+	}
+}
+/* this inner-wrapper is used because 'overflow-x: scroll' makes 'overflow-y: auto'
+which means that the '::before' used for bg would be hidden if used on the same container.
+Thus I used '.testimonials-wrapper' for '::before' and 'inner-wrapper' for scrollable-content */
+.testimonials-wrapper .inner-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, Max(31vw, 300px));
+	grid-auto-flow: column;
+	grid-auto-columns: Max(31vw, 300px);
+	column-gap: 3vw;
+
+	overflow-x: scroll;
+	padding-top: 37.5px;  /* .avatar's oveflow will also be hidden without padding. See below */
+
+	blockquote {
+		margin: 0;
+		background: get-color(Very-Light-Gray);
+		padding: 0 5% 25px;
+
+		.avatar {
+			width: 75px;
+			margin-top: -37.5px;
+		}
+	}
+
+	&::-webkit-scrollbar {
+		height: 7px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: get-color(Bright-Red);
+		border-radius: 40px;
+	}
+}
+
+
+
+
+
+
+@media screen and (max-width: 1090px) {
+	#root .testimonials-wrapper::before {
+		content: '';
+	}
+}
+/*************************************** Mobile **************************************************/
+@media screen and (max-width: 400px) {
+	#root .testimonials-wrapper .inner-wrapper {
+		
+		/* only single column visible at once */
+		grid-template-columns: repeat(auto-fill, 100vw);
+		grid-auto-columns: 100vw;
+		column-gap: 0;
+
+		/* remove scrollbar */
+		&::-webkit-scrollbar { display: none }
+		scrollbar-width: none; /* for older browsers */
+
+		scroll-snap-type: x mandatory;
+		scroll-snap-points-x: repeat(100vw); /* for older browsers */
+		
+		blockquote {
+			scroll-snap-align: start;
+			scroll-snap-stop: always;
+			padding-left: 10%; padding-right: 10%;
+		}
+	}
+	
+	.testimonials-wrapper .indicators-wrapper {
+		display: flex;
+		flex: row nowrap;
+		justify-content: center;
+
+		div {
+			margin: 0 5px;
+			width: 10px; height: 10px;
+			border-radius: 100%;
+			border: 2px solid get-color(Bright-Red); 
+			
+			position: relative;
+
+			&.active::before {
+				content: '';
+				position: absolute;
+				top: 0; bottom: 0;
+				left: 0; right: 0;
+				margin: auto;
+				width: 8px; height: 8px;
+				background: get-color(Bright-Red);
+				border-radius: 100%;
+			}
+		}
+	}
+}

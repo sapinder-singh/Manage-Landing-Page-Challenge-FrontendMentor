@@ -1,0 +1,112 @@
+@import '../colors.scss';
+@import '../cta-box.scss';
+
+.footer {
+	padding: 50px 10%;
+	background: get-color(Very-Dark-Blue);
+	white-space: nowrap;
+
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-areas:
+	'logo    references    ...   form'
+	'...     references    ...    ...'
+	'social  references    ...   copyright';
+	gap: 5%;
+
+
+	.logo {
+		grid-area: logo;
+		.logo_svg__text { fill: white }
+	}
+
+	.social-links {
+		grid-area: social;
+
+		svg {
+			margin: 0 5px;
+			&:hover path {
+				fill: get-color(Bright-Red);
+			}
+		}
+	}
+
+	.copyright {
+		grid-area: copyright;
+	}
+
+	.social-links, .copyright { align-self: center }
+	.form, .copyright { justify-self: end }
+
+}
+
+.footer .references {
+	grid-area: references;
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	grid-auto-flow: column;
+	column-gap: 10vw;
+	
+	.navlink {
+		color: white;
+		&:hover {
+			color: get-color(Bright-Red);
+		}
+	}
+}
+
+.footer .form {
+	grid-area: form;
+	position: relative;
+
+	.email {
+		padding: 12px 30px;
+		border-radius: 25px;
+		border: 1px solid transparent;
+		margin-right: 10px;
+		
+		&:focus {
+			outline: none;
+			border-color: get-color(Bright-Red);
+			box-shadow: 0 0 5px 0 inset get-color(Very-Dark-Blue);
+
+			&.invalid {
+				color: get-color(Bright-Red);
+			}
+		}
+	}
+	.error-message {
+		position: absolute; top: 105%;
+		left: 10%;
+		color: get-color(Bright-Red);
+		transform: scaleY(0);
+		font-style: italic;
+		&.show {
+			transform: scaleY(1)
+		}
+	}
+	.cta-box {
+		@include cta-box();
+	}
+}
+
+
+@media screen and (max-width: 1000px) {
+	#root .footer {
+		grid-template-rows: unset;
+		grid-template-areas:
+		'form'
+		'references'
+		'social'
+		'logo'
+		'copyright';
+		row-gap: 50px;
+		justify-content: center;
+		justify-items: center;
+
+		> * { justify-self: center }
+		.references {
+			row-gap: 30px;
+		}
+	}
+}

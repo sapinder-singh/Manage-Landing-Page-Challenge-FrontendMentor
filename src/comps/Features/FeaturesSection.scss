@@ -1,0 +1,70 @@
+@import '../colors.scss';
+
+.features-section {
+	padding: 50px 10%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	
+	.main-div {
+		flex: 0 0 45%;
+
+		.main-sub-heading {
+			margin: 40px 25% 40px 0;
+		}
+	}
+	.features-wrapper {
+		flex: 0 0 40%;
+
+		@for $i from 1 to 4 {
+			.feature-#{$i} {
+				
+				.title::before {
+					content: '0#{$i}';
+					padding: .9rem 2rem;
+					margin-right: 5%;
+					
+					background: get-color(Bright-Red);
+					border-radius: 25px;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 700px) {
+	#root .features-section {
+		flex-direction: column;
+		text-align: center;
+		overflow: hidden; /* for .title::after */
+
+		>* {
+			flex-basis: 100%;
+		}
+		.main-div .main-sub-heading {
+			margin-right: 0
+		}
+
+		.features-wrapper [class^=feature] {
+			text-align: left;
+
+			.title {
+				position: relative;
+				white-space: nowrap;
+				
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0; left: 1rem;
+					width: 100vw;
+					height: 100%;
+					background: get-color(Very-Pale-Red);
+					z-index: -1;
+				}
+			}
+		}
+	}
+}

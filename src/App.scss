@@ -1,0 +1,94 @@
+@import './comps/colors.scss';
+@import './comps/cta-box.scss';
+
+:root {
+	font-family: 'Be Vietnam', sans-serif;
+	font-size: Max(10px, 1vw);
+}
+
+body {
+	margin: 0;
+	background: url('./images/bg-tablet-pattern.svg') no-repeat top -200px right -200px;
+
+	* {
+		transition: all .2s;
+	}
+
+	h1 {
+		font-size: 4rem;
+		line-height: 5rem;
+	}
+	h2 {
+		font-size: 2.6rem;
+		line-height: 3.5rem;
+	}
+	h3 {
+		font-size: 1.3rem;
+		line-height: 3rem;
+	}
+	h1, h2
+	{ margin: 0 auto }
+
+	p, q {
+		color: get-color(Dark-Grayish-Blue);
+		margin: 20px 0 50px;
+	}
+
+	p { font-size: 1.3rem }
+
+	q, a, button, input {
+		font-size: 1.1rem;
+		font-weight: 500;
+	}
+
+	button, a {
+		white-space: nowrap;
+		text-decoration: none;
+		cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	input::placeholder,
+	.copyright {
+		color: get-color(Dark-Grayish-Blue);
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+	body {
+		background: url('./images/bg-tablet-pattern.svg') no-repeat top -5% right 60%/auto 20%;
+	}
+}
+
+
+.get-started-section {
+	display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+	padding: 100px 10%;
+
+	background: get-color(Bright-Red) url('./images/bg-get-started-section-desktop.svg') no-repeat left;
+	color: white;
+	
+	h2 { margin: 0 5% 0 0	}
+
+	.cta-box {
+		@include cta-box(white, get-color(Bright-Red));
+		box-shadow: none !important;
+	}
+}
+
+@media screen and (max-width: 740px) {
+	#root .get-started-section {
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+
+		h2 { margin: 0 }
+		.cta-box { margin: 5% auto auto }
+	}
+}
