@@ -53,6 +53,7 @@
 			.navlink { margin: 5% 10% }
 
 			transform: scaleY(0);
+			transform-origin: top;
 			&.expanded {
 				transform: scaleY(1);
 			}
