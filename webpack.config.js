@@ -5,10 +5,12 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
-	entry: './src/index.js',
+	entry: {
+		index: './src/index.js',
+	},
 	output: {
 		path: path.join(__dirname, '/build'),
-		filename: 'index_bundle.js'
+		filename: '[name].bundle.js'
 	},
 	module: {
 		rules: [
@@ -29,7 +31,7 @@ module.exports = {
 						loader: 'url-loader',
 						options: {
 							limit: 8000,
-							name: 'images/[name].[ext]'
+							name: 'images/[name]-[hash].[ext]'
 						}
 				}]
 			},
@@ -40,7 +42,7 @@ module.exports = {
 					loader: 'url-loader',
 					options: {
 						limit: 8000,
-						name: 'images/[name].[ext]'
+						name: 'images/[name]-[hash].[ext]'
 					}
 				}]
 			}

@@ -1,7 +1,5 @@
 # Frontend Mentor - Manage landing page
 
-![Design preview for the Manage landing page coding challenge](./design/desktop-preview.jpg)
-
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
@@ -36,8 +34,6 @@ The designs are in JPG static format. This will mean that you'll need to use you
 If you would like the Sketch file in order to inspect the design in more detail it is available to [purchase here](https://bmc.xyz/l/zei2aMuw0).
 
 You will find all the required assets in the `/images` folder. The assets are already optimized.
-
-There is also a `style-guide.md` file, which contains the information you'll need, such as color palette and fonts.
 
 ## Building your project
 
