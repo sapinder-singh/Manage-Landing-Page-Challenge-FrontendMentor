@@ -32,7 +32,7 @@ export default function Footer() {
 
 				<input className='email' placeholder='Updates in your inbox...' aria-label='email' />
 				<small className='error-message'>Please insert a valid email!</small>
-				<button type='submit' className='cta-box'>Go</button>
+				<button type='submit' className='cta-box' aria-label='submit'>Go</button>
 
 			</form>
 
