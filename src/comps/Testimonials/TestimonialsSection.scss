@@ -87,27 +87,19 @@ Thus I used '.testimonials-wrapper' for '::before' and 'inner-wrapper' for scrol
 	}
 	
 	.testimonials-wrapper .indicators-wrapper {
+		margin-top: 20px;
 		display: flex;
-		flex: row nowrap;
+		flex-flow: row nowrap;
 		justify-content: center;
 
 		div {
-			margin: 0 5px;
-			width: 10px; height: 10px;
+			margin: 0 2px;
+			width: 5px; height: 5px;
 			border-radius: 100%;
 			border: 2px solid get-color(Bright-Red); 
 			
-			position: relative;
-
-			&.active::before {
-				content: '';
-				position: absolute;
-				top: 0; bottom: 0;
-				left: 0; right: 0;
-				margin: auto;
-				width: 8px; height: 8px;
+			&.active {
 				background: get-color(Bright-Red);
-				border-radius: 100%;
 			}
 		}
 	}
