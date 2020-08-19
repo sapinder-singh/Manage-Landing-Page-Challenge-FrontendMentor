@@ -17,11 +17,11 @@ export default function Footer() {
 			<LogoSVG className='logo' />
 
 			<div className='social-links'>
-				<a href='./' className='social-link'><IconFB/></a>
-				<a href='./' className='social-link'><IconYT/></a>
-				<a href='./' className='social-link'><IconTWT/></a>
-				<a href='./' className='social-link'><IconPint/></a>
-				<a href='./' className='social-link'><IconInsta/></a>
+				<a className='social-link'><IconFB/></a>
+				<a className='social-link'><IconYT/></a>
+				<a className='social-link'><IconTWT/></a>
+				<a className='social-link'><IconPint/></a>
+				<a className='social-link'><IconInsta/></a>
 			</div>
 
 			<nav className='references'>
@@ -30,7 +30,7 @@ export default function Footer() {
 
 			<form className='form' noValidate onSubmit={ e => validateEmail(e) }>
 
-				<input className='email' placeholder='Updates in your inbox...' name='email' />
+				<input className='email' placeholder='Updates in your inbox...' aria-label='email' />
 				<small className='error-message'>Please insert a valid email!</small>
 				<button type='submit' className='cta-box'>Go</button>
 

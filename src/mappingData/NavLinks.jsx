@@ -41,7 +41,7 @@ export function MapNavLinks(props, parent) {
 }
 
 function Navlink(props) {
-	return <a className='navlink' href='./' key={ props.id }>
+	return <a className='navlink' key={ props.id }>
 		{ props.linkText }
 	</a>
 }

@@ -12,7 +12,7 @@ export default function Header() {
 		<header className='header'>
 			
 			<div className='logo-wrapper'>
-				<img src={ LogoSVG } className='logo'/>
+				<img src={ LogoSVG } className='logo' alt='img-logo' />
 			</div>
 
 			<NavbarContextProvider>

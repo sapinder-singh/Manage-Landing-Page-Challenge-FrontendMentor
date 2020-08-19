@@ -8,7 +8,8 @@ export default function ToggleButton() {
 	const {navbarState, updateState} = useContext(NavbarContext);
 
 	return (
-		<button type='button' className='toggle-button' onClick={ _ => updateState() }>
+		<button type='button' className='toggle-button' name='toggle-menu'
+				onClick={ _ => updateState() }>
 
 			<IconHamburger className={`icon-hamburger ${ !navbarState ? 'active' : 'inactive' } `} />
 
