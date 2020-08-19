@@ -7,7 +7,7 @@ export default function Navbar() {
 	const {navbarState} = useContext(NavbarContext);
 
 	return (
-		<nav className={`navbar ${ navbarState ? 'expanded' : 'collapsed' } `}>
+		<nav className={`navbar ${ navbarState ? 'expanded' : '' } `}>
 
 			{	/* passing 'header' for conditional rendering */
 				NavLinksData.map(link => MapNavLinks(link, 'header'))

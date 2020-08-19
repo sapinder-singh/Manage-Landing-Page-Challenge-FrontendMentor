@@ -52,11 +52,9 @@
 
 			.navlink { margin: 5% 10% }
 
+			transform: scaleY(0);
 			&.expanded {
-				clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-			}
-			&.collapsed {
-				clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
+				transform: scaleY(1);
 			}
 		}
 
